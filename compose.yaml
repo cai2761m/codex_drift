@@ -1,0 +1,32 @@
+name: codex-drift
+services:
+  web:
+    build: ./web
+    ports: ["127.0.0.1:3000:80"]
+    depends_on:
+      gateway:
+        condition: service_started
+    restart: unless-stopped
+  gateway:
+    build: ./gateway
+    environment:
+      API_BIND: 0.0.0.0:8080
+      DATABASE_URL: ${DATABASE_URL:-sqlite:///app/data/drift.db?mode=rwc}
+      ANALYZER_URL: http://analyzer:8001
+      OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-}
+    volumes: ["drift-data:/app/data"]
+    depends_on:
+      analyzer:
+        condition: service_started
+    restart: unless-stopped
+  analyzer:
+    build: ./analyzer
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      PROVIDER_BASE_URL: ${PROVIDER_BASE_URL:-https://api.openai.com/v1}
+      DEFAULT_MODEL: ${DEFAULT_MODEL:-demo-codex}
+      PROVIDER_TIMEOUT_SECONDS: ${PROVIDER_TIMEOUT_SECONDS:-60}
+      OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-}
+    restart: unless-stopped
+volumes:
+  drift-data:

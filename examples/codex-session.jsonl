@@ -1,0 +1,8 @@
+{"timestamp":"2026-10-04T08:00:00Z","type":"session_meta","payload":{"id":"demo-session","source":"example"}}
+{"timestamp":"2026-10-04T08:00:01Z","type":"turn_context","payload":{"model":"demo-codex","effort":"high"}}
+{"type":"thread.started","thread_id":"demo-session"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"type":"agent_message","text":"This synthetic session contains no response-model evidence."}}
+{"type":"turn.completed","usage":{"input_tokens":400,"cached_input_tokens":100,"output_tokens":80}}
+{"timestamp":"2026-10-04T08:02:00Z","type":"turn_context","payload":{"model":"demo-codex","effort":"low"}}
+

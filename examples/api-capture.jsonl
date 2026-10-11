@@ -1,0 +1,2 @@
+{"request":{"model":"demo-codex"},"headers":{"x-request-id":"demo-req-001"},"response":{"body":{"object":"response","id":"demo-resp-001","model":"demo-small","status":"completed","usage":{"input_tokens":100,"output_tokens":30,"total_tokens":130}}}}
+

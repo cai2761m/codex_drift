@@ -1,0 +1,11 @@
+.git
+.tools
+**/node_modules
+**/dist
+**/target
+**/.venv
+**/__pycache__
+data
+.env
+artifacts
+

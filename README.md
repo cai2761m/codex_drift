@@ -154,4 +154,5 @@ cd web && npm run build
 
 接口字段依据 [OpenAI API 官方文档](https://developers.openai.com/api/reference/overview)、[Responses 参考](https://developers.openai.com/api/reference/cli/resources/responses/methods/create)；JSONL 依据 [Codex 非交互文档](https://learn.chatgpt.com/docs/non-interactive-mode)。检测规则是本项目的启发式方法，不是 OpenAI 的模型身份认证机制。
 #   c o d e x _ d r i f t  
+ #   c o d e x _ d r i f t  
  
